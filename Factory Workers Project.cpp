@@ -82,6 +82,47 @@ public:
     }
 };
 
+// Derived ShiftSupervisor class
+class ShiftSupervisor : public Employee {
+private:
+    double annualSalary;      // Annual salary
+    double annualBonus;       // Annual production bonus
+
+public:
+    // Default constructor
+    ShiftSupervisor() : Employee(), annualSalary(0.0), annualBonus(0.0) {}
+
+    ShiftSupervisor(const string& empName, int empNumber, const string& empHireDate, double empAnnualSalary, double empAnnualBonus)
+        : Employee(empName, empNumber, empHireDate), annualSalary(empAnnualSalary), annualBonus(empAnnualBonus) {}
+
+    // Accessor functions
+    double getAnnualSalary() const { return annualSalary; }
+    double getAnnualBonus() const { return annualBonus; }
+
+    // Mutator functions
+    void setAnnualSalary(double empAnnualSalary) {
+        if (empAnnualSalary >= 0.0)
+            annualSalary = empAnnualSalary;
+        else
+            cout << "Error: Salary must be non-negative." << endl;
+    }
+
+    void setAnnualBonus(double empAnnualBonus) {
+        if (empAnnualBonus >= 0.0)
+            annualBonus = empAnnualBonus;
+        else
+            cout << "Error: Bonus must be non-negative." << endl;
+    }
+
+    // Overridden print function
+    void print() const override {
+        Employee::print();  // Call base class print
+        cout << fixed << setprecision(2);   // Format salary and bonus to 2 decimal places
+        cout << "Annual Salary: $" << annualSalary << endl;
+        cout << "Annual Bonus: $" << annualBonus << endl;
+    }
+};
+
 int main() {
             // Create first ProductionWorker object
     ProductionWorker worker1("Paul Jones", 12345, "10/28/2024", 1, 20.25);
