@@ -6,21 +6,19 @@
 
 using namespace std;
 
-// Assuming the ProductionWorker class is already implemented
-// ProductionWorker inherits from Employee
+        // ProductionWorker inherits from Employee
 class ProductionWorker {
 private:
-    string name;      // Employee's name
-    int number;       // Employee's ID number
-    string hireDate;  // Employee's hire date
-    int shift;        // Shift (1 for Day, 2 for Night)
-    double hourlyPay; // Hourly pay rate
+    string name;            // Employee's name
+    int number;             // Employee's ID number
+    string hireDate;        // Employee's hire date
+    int shift;              // Shift (1 for Day, 2 for Night)
+    double hourlyPay;       // Hourly pay rate
 
 public:
     // Default constructor
     ProductionWorker() : name(""), number(0), hireDate(""), shift(0), hourlyPay(0.0) {}
 
-    // Parameterized constructor
     ProductionWorker(const string& empName, int empNumber, const string& empHireDate, int empShift, double empHourlyPay)
         : name(empName), number(empNumber), hireDate(empHireDate), shift(empShift), hourlyPay(empHourlyPay) {}
 
@@ -48,7 +46,7 @@ public:
             cout << "Error: Hourly pay must be non-negative." << endl;
     }
 
-    // Print function
+            // Print function
     virtual void print() const {
         cout << "Name: " << name << endl;
         cout << "Employee Number: " << number << endl;
@@ -58,16 +56,16 @@ public:
         cout << "Hourly Pay Rate: $" << hourlyPay << endl;
     }
 
-    // Virtual destructor
+            // Virtual destructor
     virtual ~ProductionWorker() {}
 };
 
-// TeamLeader class derived from ProductionWorker
+        // TeamLeader class derived from ProductionWorker
 class TeamLeader : public ProductionWorker {
 private:
-    double monthlyBonus;        // Monthly bonus amount
-    int requiredTrainingHours;  // Number of required training hours
-    int attendedTrainingHours;  // Number of attended training hours
+    double monthlyBonus;                // Monthly bonus amount
+    int requiredTrainingHours;          // Number of required training hours
+    int attendedTrainingHours;          // Number of attended training hours
 
 public:
     // Default constructor
@@ -110,7 +108,7 @@ public:
 
     // Overridden print function
     void print() const override {
-        ProductionWorker::print(); // Call base class print method
+        ProductionWorker::print();      // Call base class print method
         cout << "Monthly Bonus: $" << fixed << setprecision(2) << monthlyBonus << endl;
         cout << "Required Training Hours: " << requiredTrainingHours << endl;
         cout << "Attended Training Hours: " << attendedTrainingHours << endl;
@@ -118,10 +116,10 @@ public:
 };
 
 int main() {
-    // Create a TeamLeader object
+            // Create a TeamLeader object
     TeamLeader leader("Mike Rogers", 64327, "2/7/2024", 2, 25.50, 150.00, 20, 10);
 
-    // Print TeamLeader details
+            // Print TeamLeader details
     cout << "Team Leader:" << endl;
     leader.print();
 
