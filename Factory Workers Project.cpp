@@ -14,30 +14,30 @@ private:
     string hireDate;    // Employee's hire date
 
 public:
-    // Default constructor
+                // Default constructor
     Employee() : name(""), number(0), hireDate("") {}
 
     Employee(const string& empName, int empNumber, const string& empHireDate)
         : name(empName), number(empNumber), hireDate(empHireDate) {}
 
-    // Accessor functions
+                // Accessor functions
     string getName() const { return name; }
     int getNumber() const { return number; }
     string getHireDate() const { return hireDate; }
 
-    // Mutator functions
+                // Mutator functions
     void setName(const string& empName) { name = empName; }
     void setNumber(int empNumber) { number = empNumber; }
     void setHireDate(const string& empHireDate) { hireDate = empHireDate; }
 
-    // Virtual print function
+                // Virtual print function
     virtual void print() const {
         cout << "Name: " << name << endl;
         cout << "Employee Number: " << number << endl;
         cout << "Hire Date: " << hireDate << endl;
     }
 
-    // Virtual destructor
+                // Virtual destructor
     virtual ~Employee() {}
 };
 
