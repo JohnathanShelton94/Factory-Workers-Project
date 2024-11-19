@@ -200,6 +200,14 @@ int main() {
             // Display supervisor details
     cout << "Shift Supervisor:" << endl;
     supervisor.print();
+    cout << endl;
+
+            // Create a TeamLeader object
+    TeamLeader leader("Mike Rogers", 64327, "2/7/2024", 2, 25.50, 150.00, 20, 10);
+
+            // Print TeamLeader details
+    cout << "Team Leader:" << endl;
+    leader.print();
 
     return 0;
 }
