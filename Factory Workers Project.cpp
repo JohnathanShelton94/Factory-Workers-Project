@@ -137,6 +137,7 @@ int main() {
 
     cout << "Production Worker 2:" << endl;
     worker2.print();
+    cout << endl;
 
             // Create a ShiftSupervisor object
     ShiftSupervisor supervisor("Elmer Velasquez", 100325, "1/17/2024", 70000.00, 1000.00);
