@@ -2,16 +2,16 @@
 
 #include <iostream>
 #include <string>
-#include <iomanip> 
+#include <iomanip>  // For formatting pay rate output
 
 using namespace std;
 
-    // Base Employee class
+// Base Employee class
 class Employee {
 private:
-    string name;      // Employee's name
-    int number;       // Employee's ID number
-    string hireDate;  // Employee's hire date
+    string name;        // Employee's name
+    int number;         // Employee's ID number
+    string hireDate;    // Employee's hire date
 
 public:
     // Default constructor
@@ -20,24 +20,24 @@ public:
     Employee(const string& empName, int empNumber, const string& empHireDate)
         : name(empName), number(empNumber), hireDate(empHireDate) {}
 
-        // Accessor functions
+    // Accessor functions
     string getName() const { return name; }
     int getNumber() const { return number; }
     string getHireDate() const { return hireDate; }
 
-        // Mutator functions
+    // Mutator functions
     void setName(const string& empName) { name = empName; }
     void setNumber(int empNumber) { number = empNumber; }
     void setHireDate(const string& empHireDate) { hireDate = empHireDate; }
 
-        // Virtual print function
+    // Virtual print function
     virtual void print() const {
         cout << "Name: " << name << endl;
         cout << "Employee Number: " << number << endl;
         cout << "Hire Date: " << hireDate << endl;
     }
 
-        // Virtual destructor
+    // Virtual destructor
     virtual ~Employee() {}
 };
 
