@@ -123,6 +123,61 @@ public:
     }
 };
 
+// TeamLeader class derived from ProductionWorker
+class TeamLeader : public ProductionWorker {
+private:
+    double monthlyBonus;                // Monthly bonus amount
+    int requiredTrainingHours;          // Number of required training hours
+    int attendedTrainingHours;          // Number of attended training hours
+
+public:
+    // Default constructor
+    TeamLeader() : ProductionWorker(), monthlyBonus(0.0), requiredTrainingHours(0), attendedTrainingHours(0) {}
+
+    // Parameterized constructor
+    TeamLeader(const string& empName, int empNumber, const string& empHireDate, int empShift, double empHourlyPay,
+        double empMonthlyBonus, int empRequiredHours, int empAttendedHours)
+        : ProductionWorker(empName, empNumber, empHireDate, empShift, empHourlyPay),
+        monthlyBonus(empMonthlyBonus),
+        requiredTrainingHours(empRequiredHours),
+        attendedTrainingHours(empAttendedHours) {}
+
+    // Accessors
+    double getMonthlyBonus() const { return monthlyBonus; }
+    int getRequiredTrainingHours() const { return requiredTrainingHours; }
+    int getAttendedTrainingHours() const { return attendedTrainingHours; }
+
+    // Mutators
+    void setMonthlyBonus(double empMonthlyBonus) {
+        if (empMonthlyBonus >= 0.0)
+            monthlyBonus = empMonthlyBonus;
+        else
+            cout << "Error: Monthly bonus must be non-negative." << endl;
+    }
+
+    void setRequiredTrainingHours(int empRequiredHours) {
+        if (empRequiredHours >= 0)
+            requiredTrainingHours = empRequiredHours;
+        else
+            cout << "Error: Required training hours must be non-negative." << endl;
+    }
+
+    void setAttendedTrainingHours(int empAttendedHours) {
+        if (empAttendedHours >= 0)
+            attendedTrainingHours = empAttendedHours;
+        else
+            cout << "Error: Attended training hours must be non-negative." << endl;
+    }
+
+    // Overridden print function
+    void print() const override {
+        ProductionWorker::print();      // Call base class print method
+        cout << "Monthly Bonus: $" << fixed << setprecision(2) << monthlyBonus << endl;
+        cout << "Required Training Hours: " << requiredTrainingHours << endl;
+        cout << "Attended Training Hours: " << attendedTrainingHours << endl;
+    }
+};
+
 int main() {
             // Create first ProductionWorker object
     ProductionWorker worker1("Paul Jones", 12345, "10/28/2024", 1, 20.25);
